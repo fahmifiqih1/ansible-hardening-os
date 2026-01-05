@@ -1,0 +1,22 @@
+---
+
+- name: Load OS specific vars
+  ansible.builtin.include_vars:
+    dir: "../vars"
+    files_matching: "^{{ ansible_facts['os_family'] }}\\.yml$"
+    ignore_unknown_extensions: true
+  tags: always
+
+
+
+- name: Run common preflight validation
+  import_tasks: preflight.yml
+  tags: always
+
+- import_tasks: users.yml
+- import_tasks: ssh.yml
+- import_tasks: firewall.yml
+- import_tasks: kernel.yml
+- import_tasks: fail2ban.yml
+- import_tasks: audit.yml
+- import_tasks: os_specific.yml

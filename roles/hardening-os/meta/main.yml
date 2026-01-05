@@ -1,0 +1,4 @@
+galaxy_info:
+  author: "Fahmi Fiqih"
+  description: "Ansible Role to Harden Operating System Security"
+  min_ansible_version: 2.9

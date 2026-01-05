@@ -1,0 +1,3 @@
+auditd_packaged: auditd
+install_fail2ban: true
+ssh_daemon: sshd

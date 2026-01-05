@@ -1,0 +1,7 @@
+---
+
+- name:  Ubuntu banner hardening example
+  debug:
+    msg: "This is an example task for Ubuntu banner hardening."
+  when: ansible_facts["os_family"] == "Debian"
+  

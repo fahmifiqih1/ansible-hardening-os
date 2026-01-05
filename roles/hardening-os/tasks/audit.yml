@@ -1,0 +1,12 @@
+---
+
+- name: Install audit auditd_package
+  package:
+    name: "{{ auditd_package }}"
+    state: present
+
+- name: Enable auditd service
+  systemd:
+    name: "{{ auditd_package }}"
+    state: started
+    enabled: yes

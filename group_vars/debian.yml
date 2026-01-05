@@ -1,0 +1,3 @@
+ssh_service: ssh
+firewall_pkg: ufw
+pkg_manager: apt

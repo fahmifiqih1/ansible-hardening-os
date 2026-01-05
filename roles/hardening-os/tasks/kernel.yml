@@ -1,0 +1,12 @@
+---
+
+- name: Apply sysctl security hardening
+  copy:
+    dest: /etc/sysctl.d/99-hardening.conf
+    content: |
+      net.ipv4.conf.all.rp_filter=1
+      kernel.kptr_restrict=2
+      fs.suid_dumpable=0
+
+- name: Reload sysctl settings
+  command: sysctl --system

@@ -1,0 +1,9 @@
+---
+
+- name: Validate OS family support
+  assert:
+    that:
+      - ansible_facts["os_family"] in ["Debian", "RedHat"]
+    fail_msg: "Unsupported OS family: {{ ansible_facts['os_family'] }}. This role supports only Debian and RedHat families."
+    success_msg: "OS family {{ ansible_facts['os_family'] }} is supported."
+  tags: always

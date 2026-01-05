@@ -1,0 +1,9 @@
+---
+
+- name: Ensure hardening user exists
+  user:
+    name: "{{ default_user | default('hardening_user') }}"
+    groups: "{{ allowed_ssh_groups | default([]) }}"
+    shell: /bin/bash
+
+
