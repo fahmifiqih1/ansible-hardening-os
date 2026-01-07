@@ -8,7 +8,6 @@
   tags: always
 
 
-
 - name: Run common preflight validation
   import_tasks: preflight.yml
   tags: always

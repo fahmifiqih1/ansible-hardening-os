@@ -1,3 +1,4 @@
 auditd_package: auditd
+auditd_service: auditd
 firewall_service: ufw
 ssh_daemon: sshd

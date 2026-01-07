@@ -1,9 +1,16 @@
 ---
 
+# - name: Ensure hardening user exists
+#   user:
+#     name: "{{ default_user | default('hardening_user') }}"
+#     groups: "{{ allowed_ssh_groups | default([]) }}"
+#     shell: /bin/bash
+
 - name: Ensure hardening user exists
   user:
-    name: "{{ default_user | default('hardening_user') }}"
-    groups: "{{ allowed_ssh_groups | default([]) }}"
+    name: "{{ default_user }}"
+    groups: >-
+      {{ 'wheel' if ansible_facts['os_family'] == 'RedHat'
+         else allowed_ssh_groups }}
+    append: yes
     shell: /bin/bash
-
-

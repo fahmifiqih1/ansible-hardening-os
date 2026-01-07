@@ -3,5 +3,5 @@ allowed_ssh_groups:
   - sudo
   - adm
 ssh_daemon: sshd
-firewall_service: "{{ 'ufw' if ansible_facts['os_family'] == 'Debian' else 'firewalld' }}"
-auditd_package: "{{ 'auditd' if ansible_facts['os_family'] == 'Debian' else 'audit' }}"
+# firewall_service: "{{ 'ufw' if ansible_facts['os_family'] == 'Debian' else 'firewalld' }}"
+# auditd_package: "{{ 'auditd' if ansible_facts['os_family'] == 'Debian' else 'audit' }}"

@@ -1,12 +1,16 @@
 ---
 
+- name: Print auditd_package value
+  debug:
+    msg: "auditd_package = {{ auditd_package }}"
+
 - name: Install audit auditd_package
   package:
     name: "{{ auditd_package }}"
     state: present
 
-- name: Enable auditd service
-  systemd:
-    name: "{{ auditd_package }}"
+- name: Enable and start auditd service
+  ansible.builtin.systemd:
+    name: auditd
+    enabled: true
     state: started
-    enabled: yes
